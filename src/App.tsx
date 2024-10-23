@@ -7,9 +7,17 @@
 
 import React from "react";
 import { View } from "react-native";
+import { NavigationContainer } from "@react-navigation/native";
+import TabNavigation from "./navigation/tab.navigation";
 
 function App(): React.JSX.Element {
-  return <View />;
+  return (
+    <NavigationContainer>
+      <View style={{flex: 1}}>
+        <TabNavigation />
+      </View>
+    </NavigationContainer>
+  );
 }
 
 export default App;
