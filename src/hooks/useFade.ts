@@ -1,5 +1,6 @@
 import { useRef } from "react";
 import { Animated } from "react-native";
+import { ANIMATION } from "@/theme/animations";
 
 type useFadeParams = {
   initialValue?: number;
@@ -8,7 +9,7 @@ type useFadeParams = {
 
 const useFade = ({
   initialValue = 0,
-  duration = 500,
+  duration = ANIMATION.duration,
 }: useFadeParams = {}) => {
   const opacity = useRef(new Animated.Value(initialValue)).current;
 
