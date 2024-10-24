@@ -3,7 +3,7 @@ import { SafeAreaView } from "react-native";
 import { screenStyles } from "./ScreenContainer.types";
 import type { ScreenContainerProps } from "./ScreenContainer.styles";
 
-export const ScreenContainer: FC<ScreenContainerProps> = ({
+const ScreenContainer: FC<ScreenContainerProps> = ({
   children,
   ...props
 }) => {
@@ -13,3 +13,5 @@ export const ScreenContainer: FC<ScreenContainerProps> = ({
     </SafeAreaView>
   );
 };
+
+export default ScreenContainer;
