@@ -15,6 +15,7 @@ export const InputText: FC<InputProps> = memo(({ icon, ...props }) => {
         <TextInput
           {...props}
           placeholderTextColor={COLORS.OPACITY_BLACK}
+          autoCapitalize="sentences"
           style={inputStyles.input}
         />
         {icon && <View style={inputStyles.rightContent}>{icon}</View>}
