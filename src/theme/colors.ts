@@ -1,0 +1,4 @@
+export const COLORS = {
+  OPACITY_BLACK: "#757575",
+  TEXT_COLOR_NORMAL: "#5B5757",
+};
