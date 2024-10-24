@@ -3,7 +3,7 @@ import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import { MainTabParamList } from "@/types/navigation";
 import UsersScreen from "@/screens/users-screen";
 import ReposScreen from "@/screens/repos-screen";
-
+import FontAwesome from "react-native-vector-icons/FontAwesome";
 
 const Tab = createBottomTabNavigator<MainTabParamList>();
 
