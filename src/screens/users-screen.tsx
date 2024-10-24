@@ -7,12 +7,11 @@ import type { UsersScreenProps } from "@/types/navigation";
 const UsersScreen: FC<UsersScreenProps> = () => {
   return (
     <ScreenContainer>
-       <AnimatedRender>
-        <SearchInput isLoading={false} placeholder="Busca un repositorio" />
+      <AnimatedRender>
+        <SearchInput isLoading={false} placeholder="Busca un usuario" />
       </AnimatedRender>
     </ScreenContainer>
   );
 };
-
 
 export default UsersScreen;

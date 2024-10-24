@@ -17,6 +17,7 @@ const TabNavigation = () => {
         options={{
           tabBarIcon: () => <FontAwesome name="user" size={25} />,
           headerShown: false,
+          title: "Usuarios",
         }}
       />
 
@@ -28,6 +29,7 @@ const TabNavigation = () => {
             <MaterialCommunity name="source-repository" size={25} />
           ),
           headerShown: false,
+          title: "Repositorios",
         }}
       />
     </Tab.Navigator>
