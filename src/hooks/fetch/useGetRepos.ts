@@ -15,7 +15,7 @@ const useGetUsers = (value: string, page: number) => {
       get(
         `https://api.github.com/search/repositories?q=${value}&page=${page}&per_page=${REQUEST_CONFIG.LIMIT}`
       ),
-    getNextPageParam: lastPage => {
+    getNextPageParam: (lastPage) => {
       const totalPages = Math.ceil(lastPage.total_count / REQUEST_CONFIG.LIMIT);
       return lastPage.items.length === REQUEST_CONFIG.LIMIT && page < totalPages
         ? page + 1
@@ -24,6 +24,7 @@ const useGetUsers = (value: string, page: number) => {
     initialPageParam: REQUEST_CONFIG.INITIAL_PAGE,
     initialData: REQUEST_CONFIG.INITIAL_DATA,
     initialDataUpdatedAt: 0,
+    staleTime: REQUEST_CONFIG.STALE_TIME,
   });
 
   return {

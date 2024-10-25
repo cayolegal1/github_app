@@ -5,4 +5,5 @@ export const REQUEST_CONFIG = {
     pages: [],
     pageParams: [],
   },
+  STALE_TIME: 10_000,
 };

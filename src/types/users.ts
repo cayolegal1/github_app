@@ -1,29 +1,45 @@
 import { AxiosResponseHeaders } from "axios";
 
 export type User = {
-  avatar_url:          string;
-  events_url:          string;
-  followers_url:       string;
-  following_url:       string;
-  gists_url:           string;
-  gravatar_id:         string;
-  html_url:            string;
-  id:                  number;
-  login:               string;
-  node_id:             string;
-  organizations_url:   string;
+  login: string;
+  id: number;
+  node_id: string;
+  avatar_url: string;
+  gravatar_id: string;
+  url: string;
+  html_url: string;
+  followers_url: string;
+  following_url: string;
+  gists_url: string;
+  starred_url: string;
+  subscriptions_url: string;
+  organizations_url: string;
+  repos_url: string;
+  events_url: string;
   received_events_url: string;
-  repos_url:           string;
-  score:               number;
-  site_admin:          boolean;
-  starred_url:         string;
-  subscriptions_url:   string;
-  type:                string;
-  url:                 string;
-  user_view_type:      string;
+  type: string;
+  user_view_type: string;
+  site_admin: boolean;
+  name: string;
+  company: null;
+  blog: string;
+  location: string;
+  email: null;
+  hireable: null;
+  bio: string;
+  twitter_username: string;
+  public_repos: number;
+  public_gists: number;
+  followers: number;
+  following: number;
+  created_at: Date;
+  updated_at: Date;
 };
 
-export type UsersResponse = {
-  items: User[];
-  total_count: number;
-}
+export type UserNotFound = {
+  message: string;
+  documentation_url: string;
+  status: string;
+};
+
+export type UserResponse = User | UserNotFound;

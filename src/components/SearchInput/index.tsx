@@ -9,7 +9,6 @@ const SearchInput: FC<SearchInputProps> = ({ isLoading = true, ...props }) => {
     <InputText
       {...props}
       icon={!isLoading ? <MaterialIcons name="search" size={25} /> : <Loader />}
-      readOnly={isLoading}
     />
   );
 };
