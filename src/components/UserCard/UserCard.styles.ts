@@ -1,47 +1,59 @@
 import { StyleSheet } from "react-native";
+import { BOX_SIZE, RADIUS, SPACES, TEXT_SIZE } from "@/theme/sizes";
+import { COLORS } from "@/theme/colors";
 
 const styles = StyleSheet.create({
   card: {
     backgroundColor: "#fff",
-    borderRadius: 10,
-    padding: 20,
-    margin: 10,
+    borderRadius: SPACES.min,
+    margin: SPACES.min,
+    padding: SPACES.normal,
     shadowColor: "#000",
     shadowOffset: { width: 0, height: 1 },
     shadowOpacity: 0.2,
     shadowRadius: 1,
+    width: BOX_SIZE.fullWidth * 0.9,
   },
   avatar: {
-    width: 100,
-    height: 100,
-    borderRadius: 50,
     alignSelf: "center",
+    borderRadius: RADIUS.avatar,
+    height: 100,
+    width: 100,
   },
   name: {
-    fontSize: 18,
+    fontSize: TEXT_SIZE.big,
     fontWeight: "bold",
+    marginVertical: SPACES.min,
     textAlign: "center",
-    marginVertical: 10,
   },
   bio: {
-    fontSize: 14,
-    textAlign: "center",
     color: "#666",
-    marginBottom: 15,
+    fontSize: TEXT_SIZE.normal,
+    marginBottom: SPACES.simple,
+    textAlign: "center",
+  },
+  locationContainer: {
+    alignItems: "center",
+    alignSelf: "center",
+    flexDirection: "row",
+    marginBottom: SPACES.simple,
+  },
+  location: {
+    marginLeft: SPACES.min,
   },
   statsContainer: {
     flexDirection: "row",
     justifyContent: "space-around",
-    marginBottom: 15,
+    marginBottom: SPACES.simple,
   },
   stat: {
-    fontSize: 14,
+    fontSize: TEXT_SIZE.normal,
     color: "#333",
   },
   button: {
-    backgroundColor: "#007bff",
-    padding: 10,
-    borderRadius: 5,
+    backgroundColor: COLORS.PRIMARY,
+    borderRadius: RADIUS.simple,
+    padding: SPACES.min,
   },
   buttonText: {
     color: "#fff",

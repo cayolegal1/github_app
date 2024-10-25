@@ -29,7 +29,7 @@ const UsersScreen: FC<UsersScreenProps> = () => {
       ) : (
         debouncedValue &&
         !isLoading && (
-          <Text>No se encontraron resultados para {debouncedValue}</Text>
+          <Text>No se encontraron resultados para "{debouncedValue}"</Text>
         )
       )}
     </ScreenContainer>
