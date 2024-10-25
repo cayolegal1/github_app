@@ -8,12 +8,14 @@ import EmptyView from "@/components/EmptyView";
 import useDebounce from "@/hooks/useDebounce";
 import useGetRepos from "@/hooks/fetch/useGetRepos";
 import type { ReposScreenProps } from "@/types/navigation";
+import SkeletonList from "@/components/SkeletonList";
 
 const ReposScreen: FC<ReposScreenProps> = () => {
   const [text, setText] = useState("");
   const debouncedText = useDebounce(text);
   const { isLoading, fetchNextPage, hasNextPage, data, isFetching } =
     useGetRepos(debouncedText);
+
   return (
     <ScreenContainer>
       <AnimatedRender>
@@ -24,21 +26,28 @@ const ReposScreen: FC<ReposScreenProps> = () => {
         />
       </AnimatedRender>
 
-      {data.length > 0 ? (
+      {isFetching && !(data.length > 0) ? (
+        <SkeletonList variant="normal" />
+      ) : data.length > 0 ? (
         <AnimatedRender>
           <FlatList
-            keyExtractor={item => item.id.toString()}
             data={data}
+            keyExtractor={item => item.id.toString()}
+            ListFooterComponent={
+              isFetching && hasNextPage ? (
+                <SkeletonList variant="normal" />
+              ) : null
+            }
+            maxToRenderPerBatch={4}
+            onEndReached={() => hasNextPage && fetchNextPage()}
+            onEndReachedThreshold={1.5}
+            showsVerticalScrollIndicator={false}
+            style={{ marginBottom: 100 }}
             renderItem={({ item }) => (
               <AnimatedRender>
                 <RepoCard repo={item} />
               </AnimatedRender>
             )}
-            showsVerticalScrollIndicator={false}
-            onEndReachedThreshold={1}
-            maxToRenderPerBatch={4}
-            onEndReached={() => hasNextPage && fetchNextPage()}
-            style={{ marginBottom: 100 }}
           />
         </AnimatedRender>
       ) : (

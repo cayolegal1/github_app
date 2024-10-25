@@ -28,7 +28,8 @@ export const RADIUS = {
 };
 
 export const BOX_SIZE = {
-  normal: 46,
+  defaultHeight: screenHeight * 0.35,
   fullWidth: screenWidth * 0.9,
-  normalHeight: screenHeight * 0.35,
+  normal: 46,
+  normalHeight: screenHeight * 0.3,
 };
