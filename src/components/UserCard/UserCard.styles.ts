@@ -6,7 +6,6 @@ const styles = StyleSheet.create({
   card: {
     backgroundColor: "#fff",
     borderRadius: SPACES.min,
-    margin: SPACES.min,
     padding: SPACES.normal,
     shadowColor: "#000",
     shadowOffset: { width: 0, height: 1 },
