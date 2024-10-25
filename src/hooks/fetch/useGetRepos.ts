@@ -4,7 +4,7 @@ import { REQUEST_CONFIG } from "@/constants";
 import type {  ReposResponse } from "@/types/repos";
 
 const useGetRepos = (value: string) => {
-  const { data, isLoading, fetchNextPage, hasNextPage } =
+  const { data, isLoading, fetchNextPage, hasNextPage, isFetching } =
     useInfiniteQuery<ReposResponse>({
       queryKey: ["users", value],
       queryFn: ({ pageParam = REQUEST_CONFIG.INITIAL_PAGE }) =>
@@ -26,6 +26,7 @@ const useGetRepos = (value: string) => {
   return {
     data: data?.pages.flatMap(page => page.items) || [],
     isLoading,
+    isFetching,
     fetchNextPage,
     hasNextPage,
   };

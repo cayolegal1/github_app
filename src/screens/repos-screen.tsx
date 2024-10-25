@@ -11,12 +11,14 @@ import useGetRepos from "@/hooks/fetch/useGetRepos";
 const ReposScreen: FC<ReposScreenProps> = () => {
   const [text, setText] = useState("");
   const debouncedText = useDebounce(text);
-  const { isLoading, fetchNextPage, hasNextPage, data } = useGetRepos(debouncedText);
+  const { isLoading, fetchNextPage, hasNextPage, data, isFetching } =
+    useGetRepos(debouncedText);
+    console.log({isLoading});
   return (
     <ScreenContainer>
       <AnimatedRender>
         <SearchInput
-          isLoading={isLoading}
+          isLoading={isFetching}
           onChangeText={setText}
           placeholder="Busca un repositorio"
         />
@@ -26,7 +28,11 @@ const ReposScreen: FC<ReposScreenProps> = () => {
           <FlatList
             keyExtractor={item => item.id.toString()}
             data={data}
-            renderItem={({ item }) => <RepoCard repo={item} />}
+            renderItem={({ item }) => (
+              <AnimatedRender>
+                <RepoCard repo={item} />
+              </AnimatedRender>
+            )}
             showsVerticalScrollIndicator={false}
             onEndReachedThreshold={1}
             maxToRenderPerBatch={4}
@@ -36,7 +42,8 @@ const ReposScreen: FC<ReposScreenProps> = () => {
         </AnimatedRender>
       ) : (
         debouncedText &&
-        !isLoading && (
+        !isLoading &&
+        !isFetching && (
           <Text>No se encontraron resultados para "{debouncedText}"</Text>
         )
       )}

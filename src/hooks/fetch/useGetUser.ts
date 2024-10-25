@@ -4,7 +4,7 @@ import type { UserResponse } from "@/types/users";
 import { REQUEST_CONFIG } from "@/constants";
 
 const useGetUser = (value: string) => {
-  const { data, isLoading } = useQuery<UserResponse>({
+  const { data, isLoading, isFetching } = useQuery<UserResponse>({
     queryKey: ["users", value],
     queryFn: () => get(REQUEST_CONFIG.BASE_URL + "/users/" + value),
     enabled: Boolean(value),
@@ -13,6 +13,7 @@ const useGetUser = (value: string) => {
   return {
     data,
     isLoading,
+    isFetching,
   };
 };
 

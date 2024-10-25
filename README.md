@@ -1,79 +1,69 @@
-This is a new [**React Native**](https://reactnative.dev) project, bootstrapped using [`@react-native-community/cli`](https://github.com/react-native-community/cli).
+# github_app
 
-# Getting Started
+## Getting Started
 
->**Note**: Make sure you have completed the [React Native - Environment Setup](https://reactnative.dev/docs/environment-setup) instructions till "Creating a new application" step, before proceeding.
-
-## Step 1: Start the Metro Server
-
-First, you will need to start **Metro**, the JavaScript _bundler_ that ships _with_ React Native.
-
-To start Metro, run the following command from the _root_ of your React Native project:
-
-```bash
-# using npm
-npm start
-
-# OR using Yarn
-yarn start
+```sh
+git clone https://github.com/cayolegal1/github_app.git
+cd github_app
 ```
 
-## Step 2: Start your Application
+## Install Dependencies
 
-Let Metro Bundler run in its _own_ terminal. Open a _new_ terminal from the _root_ of your React Native project. Run the following command to start your _Android_ or _iOS_ app:
+Install `node_modules` by running
 
-### For Android
+```sh
+yarn
+or 
+npm install
+```
 
-```bash
-# using npm
-npm run android
+## Running on iOS
 
-# OR using Yarn
+Install iOS dependencies, doing the following.
+\*\*\*\* PD: Run from terminal
+
+```sh
+cd ios && pod deintegrate && pod install && cd ..
+```
+
+Then execute.
+
+```sh
+yarn ios
+or
+npm run ios
+```
+
+## Running on Android
+
+Clean up and run on android devices.
+
+```sh
+cd android && ./gradlew clean && cd ..
+```
+
+Then execute.
+
+```sh
 yarn android
 ```
 
-### For iOS
+## Possible Issues
 
-```bash
-# using npm
-npm run ios
+If having any issues with `android` emulator, try any of the following solutions.
 
-# OR using Yarn
-yarn ios
-```
+-  [Missing Node or Watchman](https://reactnative.dev/docs/environment-setup?guide=native#node--watchman) - Install Node and Watchman softwares with homebrew 
+-  [Missing Android Studio App](https://developer.android.com/studio) - Get Android Studio App 
+-  [Missing Android SDK](https://developer.android.com/studio) - Get Android SDK in Android Studio (Make sure that have Android SDK Platform 33 and Intel x86 Atom_64 System Image or Google APIs Intel x86 Atom System Image or (for Apple M1 Silicon) Google APIs ARM 64 v8a System Image)
+-  [JAVA_HOME](https://www.codegrepper.com/code-examples/java/set+java_home+mac+big+sur) - Check JAVA enviroment path.
+-  [ANDROID_HOME](https://developer.android.com/tools/variables) - Check ANDROID_HOME enviroment path.
+-  [app:validateSigningDebug FAILED](https://raw.githubusercontent.com/facebook/react-native/master/template/android/app/debug.keystore) - Add `debug.keyStore` to `android/app`.
 
-If everything is set up _correctly_, you should see your new app running in your _Android Emulator_ or _iOS Simulator_ shortly provided you have set up your emulator/simulator correctly.
+If having issues with `ios` simulator, try any of the following solutions.
 
-This is one way to run your app — you can also run it directly from within Android Studio and Xcode respectively.
+-  [Missing Node or Watchman](https://reactnative.dev/docs/environment-setup?guide=native#node--watchman) - Install Node and Watchman softwares with homebrew following the react native documentation instructions, if also don't have homebrew, get it here https://facebook.github.io/watchman/
+-  [Missing Cocoapods](https://cocoapods.org/) - Install cocoapods software
+-  [Missing XCode App](https://developer.apple.com/xcode/resources/) - Get XCode App
+-  [NVM_PATH](https://reactnative.dev/docs/environment-setup?guide=native#optional-configuring-your-environment) - If using nvm, follow the documentation instructions
+-  [Missing packages] - Execute in the terminal: cd ios && pod deintegrate && pod install
 
-## Step 3: Modifying your App
-
-Now that you have successfully run the app, let's modify it.
-
-1. Open `App.tsx` in your text editor of choice and edit some lines.
-2. For **Android**: Press the <kbd>R</kbd> key twice or select **"Reload"** from the **Developer Menu** (<kbd>Ctrl</kbd> + <kbd>M</kbd> (on Window and Linux) or <kbd>Cmd ⌘</kbd> + <kbd>M</kbd> (on macOS)) to see your changes!
-
-   For **iOS**: Hit <kbd>Cmd ⌘</kbd> + <kbd>R</kbd> in your iOS Simulator to reload the app and see your changes!
-
-## Congratulations! :tada:
-
-You've successfully run and modified your React Native App. :partying_face:
-
-### Now what?
-
-- If you want to add this new React Native code to an existing application, check out the [Integration guide](https://reactnative.dev/docs/integration-with-existing-apps).
-- If you're curious to learn more about React Native, check out the [Introduction to React Native](https://reactnative.dev/docs/getting-started).
-
-# Troubleshooting
-
-If you can't get this to work, see the [Troubleshooting](https://reactnative.dev/docs/troubleshooting) page.
-
-# Learn More
-
-To learn more about React Native, take a look at the following resources:
-
-- [React Native Website](https://reactnative.dev) - learn more about React Native.
-- [Getting Started](https://reactnative.dev/docs/environment-setup) - an **overview** of React Native and how setup your environment.
-- [Learn the Basics](https://reactnative.dev/docs/getting-started) - a **guided tour** of the React Native **basics**.
-- [Blog](https://reactnative.dev/blog) - read the latest official React Native **Blog** posts.
-- [`@facebook/react-native`](https://github.com/facebook/react-native) - the Open Source; GitHub **repository** for React Native.

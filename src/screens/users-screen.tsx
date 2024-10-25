@@ -11,7 +11,7 @@ import { Text } from "react-native";
 const UsersScreen: FC<UsersScreenProps> = () => {
   const [text, setText] = useState("");
   const debouncedText = useDebounce(text);
-  const { data, isLoading } = useGetUsers(debouncedText);
+  const { data, isLoading, isFetching } = useGetUsers(debouncedText);
   return (
     <ScreenContainer>
       <AnimatedRender>
@@ -28,7 +28,8 @@ const UsersScreen: FC<UsersScreenProps> = () => {
         </AnimatedRender>
       ) : (
         debouncedText &&
-        !isLoading && (
+        !isLoading &&
+        !isFetching && (
           <Text>No se encontraron resultados para "{debouncedText}"</Text>
         )
       )}
