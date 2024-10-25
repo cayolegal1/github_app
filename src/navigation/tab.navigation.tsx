@@ -5,6 +5,7 @@ import ReposScreen from "@/screens/repos-screen";
 import FontAwesome from "react-native-vector-icons/FontAwesome";
 import MaterialCommunity from "react-native-vector-icons/MaterialCommunityIcons";
 import type { MainTabParamList } from "@/types/navigation";
+import { COLORS } from "@/theme/colors";
 
 const Tab = createBottomTabNavigator<MainTabParamList>();
 
@@ -15,7 +16,13 @@ const TabNavigation = () => {
         name="users"
         component={UsersScreen}
         options={{
-          tabBarIcon: () => <FontAwesome name="user" size={25} />,
+          tabBarIcon: ({focused}) => (
+            <FontAwesome
+              name="user"
+              size={25}
+              color={focused ? COLORS.PRIMARY : ""}
+            />
+          ),
           headerShown: false,
           title: "Usuarios",
         }}
@@ -25,8 +32,12 @@ const TabNavigation = () => {
         name="repos"
         component={ReposScreen}
         options={{
-          tabBarIcon: () => (
-            <MaterialCommunity name="source-repository" size={25} />
+          tabBarIcon: ({focused}) => (
+            <MaterialCommunity
+              name="source-repository"
+              size={25}
+              color={focused ? COLORS.PRIMARY : ""}
+            />
           ),
           headerShown: false,
           title: "Repositorios",

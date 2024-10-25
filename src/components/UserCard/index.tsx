@@ -22,7 +22,7 @@ const UserCard: FC<UserCardProps> = ({ user }) => {
         </View>
       )}
       <View style={styles.statsContainer}>
-        <Text style={styles.stat}>Repos: <Text style={styles.textBold}>{user.public_repos || 0}</Text></Text>
+        <Text style={styles.stat}>Repositorios: <Text style={styles.textBold}>{user.public_repos || 0}</Text></Text>
         <Text style={styles.stat}>Seguidores: <Text style={styles.textBold}>{user.followers || 0}</Text></Text>
       </View>
       <TouchableOpacity
