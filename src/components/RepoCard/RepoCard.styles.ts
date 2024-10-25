@@ -14,6 +14,12 @@ const styles = StyleSheet.create({
     shadowRadius: 1,
     width: BOX_SIZE.fullWidth * 0.9,
   },
+  avatar: {
+    width: 30,
+    height: 30,
+    borderRadius: 20,
+    marginLeft: SPACES.min,
+  },
   header: {
     flexDirection: "row",
     justifyContent: "space-between",
@@ -23,6 +29,7 @@ const styles = StyleSheet.create({
   repoName: {
     fontSize: TEXT_SIZE.big,
     fontWeight: "bold",
+    flexGrow: 2,
     color: COLORS.PRIMARY,
   },
   description: {

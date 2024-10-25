@@ -1,13 +1,14 @@
-import React, { useEffect, memo, type FC } from "react";
+import React, { useEffect, type FC } from "react";
 import { Animated } from "react-native";
 import useFade from "@/hooks/useFade";
 import { AnimatedRenderProps } from "./AnimatedRender.types";
 
 const AnimatedRender: FC<AnimatedRenderProps> = ({ children, style = {} }) => {
-  const { opacity, fadeIn } = useFade();
+  const { opacity, fadeIn, fadeOut } = useFade();
 
   useEffect(() => {
     fadeIn();
+    return () => fadeOut();
   }, []);
 
   return (

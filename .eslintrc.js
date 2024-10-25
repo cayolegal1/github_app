@@ -6,7 +6,6 @@ module.exports = {
     "jsx-quotes": ["error", "prefer-double"],
     "react-hooks/exhaustive-deps": "off",
     "react-native/no-inline-styles": "off",
-    "@typescript-eslint/no-unused-vars": "off",
     curly: "off",
     radix: "off",
     "@typescript-eslint/no-shadow": "off",

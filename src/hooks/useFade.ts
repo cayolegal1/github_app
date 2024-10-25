@@ -21,9 +21,18 @@ const useFade = ({
     }).start();
   };
 
+  const fadeOut = () => {
+    Animated.timing(opacity, {
+      toValue: 0,
+      duration,
+      useNativeDriver: true,
+    }).start();
+  };
+
   return {
-    opacity,
     fadeIn,
+    fadeOut,
+    opacity,
   };
 };
 
