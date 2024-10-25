@@ -1,3 +1,5 @@
+import { AxiosResponseHeaders } from "axios";
+
 export type User = {
   avatar_url:          string;
   events_url:          string;
@@ -22,7 +24,6 @@ export type User = {
 };
 
 export type UsersResponse = {
-  incomplete_results: boolean;
   items: User[];
   total_count: number;
 }

@@ -1,3 +1,4 @@
+import { AxiosHeaders, AxiosResponseHeaders } from "axios";
 import type { User } from "./users";
 
 export type License = {
@@ -92,7 +93,7 @@ export type Repo = {
 };
 
 export type ReposResponse = {
-  incomplete_results: boolean;
   items: Repo[];
   total_count: number;
+//   headers: AxiosResponseHeaders;
 };

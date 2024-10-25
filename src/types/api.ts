@@ -1,4 +1,4 @@
-import type { AxiosRequestConfig } from "axios";
+import type { AxiosRequestConfig, AxiosResponse } from "axios";
 
 type HttpAceptedMethods = "GET";
 
@@ -7,3 +7,4 @@ export type Request = {
   method: HttpAceptedMethods;
   url: string;
 };
+
