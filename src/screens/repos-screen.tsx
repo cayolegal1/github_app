@@ -13,7 +13,6 @@ const ReposScreen: FC<ReposScreenProps> = () => {
   const debouncedText = useDebounce(text);
   const { isLoading, fetchNextPage, hasNextPage, data, isFetching } =
     useGetRepos(debouncedText);
-    console.log({isLoading});
   return (
     <ScreenContainer>
       <AnimatedRender>
