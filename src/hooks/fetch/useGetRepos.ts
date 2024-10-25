@@ -1,5 +1,36 @@
-const useGetRepos = (value: string) => {
-  return {};
+import { useInfiniteQuery } from "@tanstack/react-query";
+import { get } from "@/services/api";
+import type { ReposResponse } from "@/types/repos";
+
+const limit = 10;
+
+const useGetUsers = (value: string, page: number) => {
+  const {
+    data,
+    isFetching: isLoading,
+    fetchNextPage,
+    hasNextPage,
+  } = useInfiniteQuery<ReposResponse>({
+    queryKey: ["users", value, page],
+    queryFn: () =>
+      get(
+        `https://api.github.com/search/repositories?q=${value}&page=${page}&per_page=${limit}`,
+      ),
+    getNextPageParam: lastPage => {
+      const totalPages = Math.ceil(lastPage.total_count / limit);
+      return lastPage.items.length === limit && page < totalPages
+        ? page + 1
+        : undefined;
+    },
+    initialPageParam: 1,
+  });
+
+  return {
+    data,
+    isLoading,
+    fetchNextPage,
+    hasNextPage,
+  };
 };
 
-export default useGetRepos;
+export default useGetUsers;
