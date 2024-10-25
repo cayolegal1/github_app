@@ -1,6 +1,7 @@
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { buildProvidersTree } from "./functions/providers";
 import { NavigationContainer } from "@react-navigation/native";
+import { setupDebugger } from "./functions/debugger";
 
 export const queryClient = new QueryClient({
   defaultOptions: { queries: { retry: 1 } },
@@ -11,3 +12,7 @@ export const Providers = buildProvidersTree([
   [QueryClientProvider, { client: queryClient }],
   [NavigationContainer],
 ]);
+
+export const setupApp = () => {
+  setupDebugger();
+};

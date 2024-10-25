@@ -9,15 +9,15 @@ import UserCard from "@/components/UserCard";
 import { Text } from "react-native";
 
 const UsersScreen: FC<UsersScreenProps> = () => {
-  const [value, setValue] = useState("");
-  const debouncedValue = useDebounce(value);
-  const { data, isLoading } = useGetUsers(debouncedValue);
+  const [text, setText] = useState("");
+  const debouncedText = useDebounce(text);
+  const { data, isLoading } = useGetUsers(debouncedText);
   return (
     <ScreenContainer>
       <AnimatedRender>
         <SearchInput
           isLoading={isLoading}
-          onChangeText={setValue}
+          onChangeText={setText}
           placeholder="Busca un usuario"
         />
       </AnimatedRender>
@@ -27,9 +27,9 @@ const UsersScreen: FC<UsersScreenProps> = () => {
           <UserCard user={data} />
         </AnimatedRender>
       ) : (
-        debouncedValue &&
+        debouncedText &&
         !isLoading && (
-          <Text>No se encontraron resultados para "{debouncedValue}"</Text>
+          <Text>No se encontraron resultados para "{debouncedText}"</Text>
         )
       )}
     </ScreenContainer>

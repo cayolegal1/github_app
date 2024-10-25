@@ -9,7 +9,7 @@ export type License = {
   url: string;
 };
 
-export type Repo = {
+export type Repository = {
   allow_forking: boolean;
   archive_url: string;
   archived: boolean;
@@ -93,7 +93,7 @@ export type Repo = {
 };
 
 export type ReposResponse = {
-  items: Repo[];
+  items: Repository[];
   total_count: number;
 //   headers: AxiosResponseHeaders;
 };

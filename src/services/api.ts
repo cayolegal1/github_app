@@ -17,7 +17,7 @@ export class ApiFetch {
       method,
       url,
       headers: {
-        Authorization: "token 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",
+        Authorization: "token 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",
       },
     });
 
