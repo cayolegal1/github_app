@@ -1,12 +1,13 @@
 import React, { useState, type FC } from "react";
-import { FlatList, Text } from "react-native";
+import { FlatList } from "react-native";
 import ScreenContainer from "@/components/ScreenContainer";
 import AnimatedRender from "@/components/AnimatedRender";
-import type { ReposScreenProps } from "@/types/navigation";
 import SearchInput from "@/components/SearchInput";
 import RepoCard from "@/components/RepoCard";
+import EmptyView from "@/components/EmptyView";
 import useDebounce from "@/hooks/useDebounce";
 import useGetRepos from "@/hooks/fetch/useGetRepos";
+import type { ReposScreenProps } from "@/types/navigation";
 
 const ReposScreen: FC<ReposScreenProps> = () => {
   const [text, setText] = useState("");
@@ -22,6 +23,7 @@ const ReposScreen: FC<ReposScreenProps> = () => {
           placeholder="Busca un repositorio"
         />
       </AnimatedRender>
+
       {data.length > 0 ? (
         <AnimatedRender>
           <FlatList
@@ -42,9 +44,7 @@ const ReposScreen: FC<ReposScreenProps> = () => {
       ) : (
         debouncedText &&
         !isLoading &&
-        !isFetching && (
-          <Text>No se encontraron resultados para "{debouncedText}"</Text>
-        )
+        !isFetching && <EmptyView searchedValue={debouncedText} />
       )}
     </ScreenContainer>
   );

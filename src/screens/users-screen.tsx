@@ -3,11 +3,11 @@ import ScreenContainer from "@/components/ScreenContainer";
 import AnimatedRender from "@/components/AnimatedRender";
 import SearchInput from "@/components/SearchInput";
 import UserCard from "@/components/UserCard";
-import { Skeleton } from "@/components/Skeleton";
+import Skeleton from "@/components/Skeleton";
+import EmptyView from "@/components/EmptyView";
 import useDebounce from "@/hooks/useDebounce";
 import useGetUsers from "@/hooks/fetch/useGetUser";
 import type { UsersScreenProps } from "@/types/navigation";
-import { Text } from "react-native";
 
 const UsersScreen: FC<UsersScreenProps> = () => {
   const [text, setText] = useState("");
@@ -32,9 +32,7 @@ const UsersScreen: FC<UsersScreenProps> = () => {
       ) : (
         debouncedText &&
         !isLoading &&
-        !isFetching && (
-          <Text>No se encontraron resultados para "{debouncedText}"</Text>
-        )
+        !isFetching && <EmptyView searchedValue={debouncedText} />
       )}
 
     </ScreenContainer>

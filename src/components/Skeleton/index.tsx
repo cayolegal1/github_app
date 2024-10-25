@@ -3,7 +3,7 @@ import ContentLoader, { Rect } from "react-content-loader/native";
 import { COLORS } from "@/theme/colors";
 import { SPACES, BOX_SIZE } from "@/theme/sizes";
 
-export const Skeleton: FC = ({}) => {
+const Skeleton: FC = ({}) => {
   return (
     <ContentLoader
       style={{ margin: SPACES.min }}
@@ -17,3 +17,5 @@ export const Skeleton: FC = ({}) => {
     </ContentLoader>
   );
 };
+
+export default Skeleton;
