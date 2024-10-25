@@ -16,9 +16,6 @@ export class ApiFetch {
       ...axiosConfig,
       method,
       url,
-      headers: {
-        Authorization: "token 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",
-      },
     });
 
     return data;
