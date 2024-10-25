@@ -1,6 +1,7 @@
 import { Dimensions } from "react-native";
 
 const screenWidth = Dimensions.get("screen").width;
+const screenHeight = Dimensions.get("screen").height;
 
 export const SPACES = {
   big: 40,
@@ -28,5 +29,6 @@ export const RADIUS = {
 
 export const BOX_SIZE = {
   normal: 46,
-  fullWidth: screenWidth,
+  fullWidth: screenWidth * 0.9,
+  normalHeight: screenHeight * 0.35,
 };

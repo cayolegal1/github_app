@@ -12,7 +12,7 @@ const styles = StyleSheet.create({
     shadowOffset: { width: 0, height: 1 },
     shadowOpacity: 0.2,
     shadowRadius: 1,
-    width: BOX_SIZE.fullWidth * 0.9,
+    width: BOX_SIZE.fullWidth,
   },
   avatar: {
     width: 30,

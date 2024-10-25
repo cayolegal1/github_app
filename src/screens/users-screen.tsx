@@ -2,10 +2,11 @@ import React, { useState, type FC } from "react";
 import ScreenContainer from "@/components/ScreenContainer";
 import AnimatedRender from "@/components/AnimatedRender";
 import SearchInput from "@/components/SearchInput";
+import UserCard from "@/components/UserCard";
+import { Skeleton } from "@/components/Skeleton";
 import useDebounce from "@/hooks/useDebounce";
 import useGetUsers from "@/hooks/fetch/useGetUser";
 import type { UsersScreenProps } from "@/types/navigation";
-import UserCard from "@/components/UserCard";
 import { Text } from "react-native";
 
 const UsersScreen: FC<UsersScreenProps> = () => {
@@ -22,7 +23,9 @@ const UsersScreen: FC<UsersScreenProps> = () => {
         />
       </AnimatedRender>
 
-      {data && "id" in data ? (
+      {isLoading ? (
+        <Skeleton />
+      ) : data && "id" in data ? (
         <AnimatedRender>
           <UserCard user={data} />
         </AnimatedRender>
@@ -33,6 +36,7 @@ const UsersScreen: FC<UsersScreenProps> = () => {
           <Text>No se encontraron resultados para "{debouncedText}"</Text>
         )
       )}
+
     </ScreenContainer>
   );
 };
